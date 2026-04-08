@@ -9,3 +9,4 @@ python-dotenv
 requests
 deep-translator
 langdetect
+google-generativeai

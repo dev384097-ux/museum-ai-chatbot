@@ -1,15 +1,15 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+import uuid
+import random
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from chatbot_engine import MuseumChatbot
 from database import init_db, get_db_connection
-import os
-import uuid
-import random
 from authlib.integrations.flask_client import OAuth
 from flask_mail import Mail, Message
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'super_secret_key_for_hackathon')
