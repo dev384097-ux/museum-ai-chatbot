@@ -12,7 +12,10 @@ from authlib.integrations.flask_client import OAuth
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'super_secret_key_for_hackathon')
+app.secret_key = os.getenv('SECRET_KEY')
+if not app.secret_key:
+    # Fallback only for development, otherwise will cause issues
+    app.secret_key = 'development_only_key_please_set_in_env'
 
 # OAuth Configuration
 oauth = OAuth(app)
